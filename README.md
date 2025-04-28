@@ -15,7 +15,7 @@ The software is built with dynamic code, ensuring compatibility with future upda
 pkg install git
 git clone https://github.com/harkerbyte/spyder
 cd spyder
-bash setup.sh
+bash setup.sh -m requirements.txt
 ```
 
 ## Capturing ip address by link
