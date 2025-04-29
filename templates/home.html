@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Send anonymous messages safely and securely." />
+  <meta name="author" content="shade" />
+  <title>Anonymous Message Drop</title>
+
+  {% block style %}
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      color: #0f0;
+      margin-bottom: 20px;
+    }
+
+    form {
+      width: 90%;
+      max-width: 800px;
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+    }
+
+    textarea {
+      width: 100%;
+      height: 300px;
+      padding: 10px;
+      font-size: 25px;
+      border: none;
+      border-radius: 5px;
+      background: black;
+      color: grey;
+      resize: none;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 25px;
+      background: #0f0;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #status {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #0f0;
+      display: none;
+    }
+    p{
+      inset:0%;
+      color: green;
+      font-size:20px;
+      font-family:sans-serif;
+      text-decoration:underline;
+    }
+  {% endblock %}
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('form').submit(function (e) {
+        e.preventDefault();
+        var message = $('#message').val().trim();
+        if (message.length === 0) {
+          $('#status').text("Please type a message.").fadeIn().delay(2000).fadeOut();
+          return;
+        }
+
+        // Simulate a post (replace URL with real endpoint)
+        $.post('/submit', { message: message })
+          .done(function () {
+            $('#status').text("Message sent anonymously.").fadeIn().delay(2000).fadeOut();
+            $('#message').val('');
+          })
+          .fail(function () {
+            $('#status').text("Error sending message.").fadeIn().delay(2000).fadeOut();
+          });
+      });
+    });
+  </script>
+</head>
+{% block body %}
+{% if refresh != True%}
+  <h1>Drop Your Anonymous Message</h1>
+  <form>
+    <textarea id="message" placeholder="Type your message here..."></textarea>
+    <button type="submit">Send</button>
+    <div id="status"></div>
+  </form>
+{%else%}
+  <p>Kindly refresh the page</p>
+{%endif%}
+  <footer>
+    @SPYDER
+  </footer>
+{% endblock %}
+</html>
