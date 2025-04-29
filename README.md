@@ -18,5 +18,15 @@ cd spyder
 bash setup.sh -m requirements.txt
 bash spy.sh
 ```
-## To update
-```   python update.py   ```
+**To update**
+```  python update.py  ```
+
+## Spychat beta
+![1000030383](https://github.com/user-attachments/assets/22bbad87-0b67-4d78-8be9-3e8f61b3cfe7)
+
+**Spychat** is a low-latency, CLI-based chatting system built for all operating systems. It allows users to establish secure remote connections between devices for private, peer-to-peer communication. Whether you're chatting one-on-one or hosting a broadcast channel with friends, Spychat offers a lightweight and privacy-conscious environment for real-time messaging.
+
+Note: This release is in beta and not recommended for large-scale production. Ongoing development will continue in a separate repository.
+
+Public or private? Let’s find out. 🦇
+
