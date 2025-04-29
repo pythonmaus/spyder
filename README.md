@@ -10,13 +10,13 @@ An Advanced Networking Tool for Testing — Designed for Linux Systems
 
 The software is built with dynamic code, ensuring compatibility with future updates and allowing it to evolve alongside the community's needs.
 
-### Installation
+## Installation and setup
 ```
 pkg install git
 git clone https://github.com/harkerbyte/spyder
 cd spyder
 bash setup.sh -m requirements.txt
+bash spy.sh
 ```
-
-## Capturing ip address by link
-![1000029814](https://github.com/user-attachments/assets/37314fd2-f42c-456b-971b-36a7e042761a)
+## To update
+```   python update.py   ```
