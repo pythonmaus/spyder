@@ -1,6 +1,3 @@
-## Important notice ⚠️
-**Kindly refrain from installing before April 30th, as the software will not be fully released until then. Thank you for your patience and support! --- Shade**
-
 # spyder
 ![1000029813](https://github.com/user-attachments/assets/527dfa54-35cb-4beb-b63a-d1de210c8265)
 
@@ -11,6 +8,7 @@ An Advanced Networking Tool for Testing — Designed for Linux Systems
 The software is built with dynamic code, ensuring compatibility with future updates and allowing it to evolve alongside the community's needs.
 
 ## Installation and setup
+[![INSTALLATION TUTORIAL YT](https://github.com/harkerbyte/spyder/blob/main/extras/20250430_164910.png)](https://www.youtube.com/watch?v=MRLkgA7TR0E&feature=youtu.be)
 ```
 pkg install git
 git clone https://github.com/harkerbyte/spyder
