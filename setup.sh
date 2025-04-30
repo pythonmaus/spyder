@@ -6,7 +6,7 @@ blue='\e[34m'
 plain='\e[0m'
 
 usage (){
-  echo -e "Enter: $0 -m requirements.txt"
+  echo -e "${red}Enter: $0 -m requirements.txt${plain}"
 }
 while getopts "m:" opt;do
   case $opt in 
