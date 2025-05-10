@@ -14,9 +14,12 @@ if not os.path.exists('extras/ip.json'):
     cp.close()
 
 def write_file(ip,time):
-  with open('extras/ip.json', 'w') as captured:
-    json.dump({'1':{'ip':f'{ip}','captured':f'{time}'}},captured,indent=2)
-    captured.closed()
+  try:
+    with open('extras/ip.json', 'w') as captured:
+      json.dump({'1':{'ip':f'{ip}','captured':f'{time}'}},captured,indent=2)
+      captured.closed()
+  except Exception:
+    pass
       
 @app.route('/')
 def home():
@@ -24,30 +27,30 @@ def home():
   if user_ip != None:
     fir,sec,thir,fou = user_ip.split('.')
   
-  t_cap=datetime.now().strftime("%Y-%m-%d(%H:%M:%S)")
-  try:
-    if len(fir) == 3:
-      with open('extras/ip.json', 'r') as captured:
-        try:
-          load=json.load(captured)
-          note=0
-          i=0
-          while i < len(load.keys()):
-            note+=1
-            i+=1
-          captured.close()
-          with open('extras/ip.json', 'w') as update:
-            load.update({f'{note+1}':{'ip':f'{user_ip}','captured':f'{t_cap}'}})
-            json.dump(load,update,indent=2)
-            update.close()
-        except Exception:
-          write_file(user_ip,t_cap)
-          return render_template('home.html', refresh = True), 200
-    else:
-      pass
-  except Exception:
-    write_file(user_ip,t_cap)
-    return render_template('home.html', refresh = True), 200
+    t_cap=datetime.now().strftime("%Y-%m-%d(%H:%M:%S)")
+    try:
+      if len(fir) == 3:
+        with open('extras/ip.json', 'r') as captured:
+          try:
+            load=json.load(captured)
+            note=0
+            i=0
+            while i < len(load.keys()):
+              note+=1
+              i+=1
+            captured.close()
+            with open('extras/ip.json', 'w') as update:
+              load.update({f'{note+1}':{'ip':f'{user_ip}','captured':f'{t_cap}'}})
+              json.dump(load,update,indent=2)
+              update.close()
+          except Exception:
+            write_file(user_ip,t_cap)
+            return render_template('home.html', refresh = True), 200
+      else:
+        pass
+    except Exception:
+      write_file(user_ip,t_cap)
+      return render_template('home.html', refresh = True), 200
   
   return render_template('home.html'), 200
   
